@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Prediction</title>
+</head>
+
+<body>
+ <div class="login">
+    <h1>Loan or No Loan?</h1>
+    <h3>Predict if the applicant should be granted a loan or not</h3>
+    <form action="{{ url_for('predict')}}"method="post">
+      <label for="gender">Gender:</label>
+        <select name="gender" id="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      <label for="married">Married:</label>
+        <select name="married" id="married">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      <label for="dependents">Dependents:</label>
+        <select name="dependents" id="dependents">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3+">3+</option>
+        </select>
+      <br><br>
+      <label for="education">Education:</label>
+        <select name="education" id="education">
+          <option value="Graduate">Graduate</option>
+          <option value="Not Graduate">Not Graduate</option>
+        </select>
+      <label for="self_employed">Self Employed:</label>
+        <select name="self_employed" id="self_employed">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      <input type="text" name="applicant_income" placeholder="Applicant Income" required="required" />
+      <br><br>
+      <input type="text" name="coapplicant_income" placeholder="Coapplicant Income" required="required" />
+      <input type="text" name="loan_amount" placeholder="Loan Amount" required="required" />
+      <input type="text" name="loan_amount_term" placeholder="Loan Amount Term" required="required" />
+      <br><br>
+      <label for="credit_history">Credit History:</label>
+        <select name="credit_history" id="credit_history">
+          <option value="1.0">1.0</option>
+          <option value="0.0">0.0</option>
+        </select>
+      <label for="property_area">Property Area:</label>
+        <select name="property_area" id="property_area">
+          <option value="Urban">Urban</option>
+          <option value="Semiurban">Semiurban</option>
+          <option value="Rural">Rural</option>
+        </select>
+      <br><br>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+    </form>
+
+   <br>
+   <br>
+   {{ output }}
+
+ </div>
+
+
+</body>
+</html>

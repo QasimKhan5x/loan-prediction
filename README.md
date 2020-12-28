@@ -1,2 +1,2 @@
-# loan-prediction
-Web app for the 3rd datathon of Dphi's ML bootcamp - advanced track
+# Loan Prediction Web App
+Web app for the 3rd assignment of Dphi's ML bootcamp - advanced track
