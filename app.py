@@ -6,7 +6,9 @@ import os
 
 # app name
 app = Flask(__name__)
-model = load_model('Datathon 3\loan-prediction\loans')
+# model
+model = load_model(os.path.join('loan-prediction', 'loans'))
+
 def get_pred(x):
     labels = ['rejected', 'granted']
     X = pd.DataFrame([x], columns=['Gender', 'Married', 'Dependents','Education','Self_Employed',
