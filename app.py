@@ -1,20 +1,18 @@
 import numpy as np
 import pandas as pd
-from pycaret.classification import load_model, predict_model
+from joblib import load
 from flask import Flask, request, jsonify, render_template
 import os
 
 # app name
 app = Flask(__name__)
 # model
-model = load_model(os.path.join('loan-prediction', 'loans'))
+model = load('pipe_sklearn.joblib') 
 
 def get_pred(x):
     labels = ['rejected', 'granted']
-    X = pd.DataFrame([x], columns=['Gender', 'Married', 'Dependents','Education','Self_Employed',
-                         'ApplicantIncome','CoapplicantIncome','LoanAmount','Loan_Amount_Term',
-                         'Credit_History','Property_Area'])
-    y = predict_model(model, X)['Label'].values[0]
+    X = np.array([x])
+    y = model.predict(X)[0]
     return labels[y]
  
 @app.route('/')
